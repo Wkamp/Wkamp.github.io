@@ -6,6 +6,8 @@ canvas.height = window.innerHeight;
 console.log(canvas.width, canvas.height);
 
 var c = canvas.getContext('2d');
+var winner = false;
+var winColor = 'white';
 
 var mouseClick = {
     x: undefined,
@@ -94,14 +96,17 @@ function animate() {
 
     checkAll = [row1, row2, row3, col1, col2, col3, diag1, diag2]
 
-    if (checkAll.includes('redredred') == true) {
-        c.fillStyle = 'red';
-        c.fillRect(canvas.width/2.5 + 100, 600, 50, 50);
+    if (checkAll.includes('redredred') && !winner) {
+        winColor = 'red';
+        winner = true;
     }
-    if (checkAll.includes('blueblueblue') == true) {
-        c.fillStyle = 'blue';
-        c.fillRect(canvas.width/2.5 + 100, 600, 50, 50);
+    if (checkAll.includes('blueblueblue') && !winner) {
+        winColor = 'blue';
+        winner == true;
     }
+
+    c.fillStyle = winColor;
+    c.fillRect(canvas.width/2.5 + 100, 600, 50, 50);
 
 };
 
