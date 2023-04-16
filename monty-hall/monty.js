@@ -114,7 +114,7 @@ function animate() {
 }
     if (picked != -1 && !gameOver) {
         stats();
-        console.log(picked, treasureLocation);
+        //console.log(picked, treasureLocation);
 
         
         while (hideDoor == picked || hideDoor == treasureLocation || hideDoor == -1) {
