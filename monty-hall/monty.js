@@ -62,6 +62,7 @@ let doors;
 let picked;
 let switchYes;
 let switchNo;
+let hideDoor = -1;
 
 let treasureLocation;
 let gameOver;
@@ -72,12 +73,14 @@ var totalSwitchWins = 0;
 var totalStayGames = 0;
 var totalStayWins = 0;
 
+
 function init() {
     doors = [new Rectangle(0,0), new Rectangle(100,0), new Rectangle(200,0)];
     treasureLocation = randRange(0,3);
     doors[treasureLocation].treasure = true;
     switchYes = new Rectangle(0,200, 70, 40, '#333');
     switchNo = new Rectangle(100,200, 110, 40, '#333');
+    hideDoor = -1;
     
     gameOver = false;
     picked = -1;
@@ -112,8 +115,9 @@ function animate() {
     if (picked != -1 && !gameOver) {
         stats();
         console.log(picked, treasureLocation);
-        var hideDoor = 0;
-        while (hideDoor == picked || hideDoor == treasureLocation) {
+
+        
+        while (hideDoor == picked || hideDoor == treasureLocation || hideDoor == -1) {
             hideDoor = randRange(0,3);
         }
         doors[hideDoor].color = 'white';
