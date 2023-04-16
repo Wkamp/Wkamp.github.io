@@ -10,6 +10,18 @@ body {
     border-left: 1px solid #333;
     border-right: 1px solid #333; 
 }
+a {
+    color: #333;
+    
+}
+/* a:visited {
+    color: lightgray;
+} */
+a:hover, a:active {
+    color: #eee;
+}
+
+
 /* canvas {
     border: 1px solid black;
 } */
