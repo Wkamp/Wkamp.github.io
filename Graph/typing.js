@@ -8,7 +8,6 @@ let correct;
 let userInput;
 let guess;
 let lives;
-var highscore = 0;
 
 function randRange(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -392,9 +391,6 @@ window.addEventListener('keydown', (event) => {
         case '&':
             addKey = '&';
             break;
-        case '*':
-            addKey = '*';
-            break;
         case 'Backspace':
             userInput = userInput.slice(0, userInput.length-1);
     }
@@ -483,11 +479,8 @@ function animate() {
         case 0:
             c.fillStyle = 'rgb(212, 57, 30)'
             break;
-        case -1: // you lose    
-            if (highscore < correct) {
-                highscore = correct;
-            }
-            alert('Highscore: ' + String(highscore) + '\nScore: ' + String(correct))
+        case -1: // you lose
+            alert('Highscore: ' + String(correct))
             init();
             break;
     }

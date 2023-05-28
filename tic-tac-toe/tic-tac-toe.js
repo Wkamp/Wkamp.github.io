@@ -89,7 +89,6 @@ function animate() {
     var col1 = rectangles[0][2].color + rectangles[1][2].color + rectangles[2][2].color;
     var col2 = rectangles[0][1].color + rectangles[1][1].color + rectangles[2][1].color;
     var col3 = rectangles[0][0].color + rectangles[1][0].color + rectangles[2][0].color;
-	console.log(col2);
 
     var diag1 = rectangles[2][0].color + rectangles[1][1].color + rectangles[0][2].color;
     var diag2 = rectangles[0][0].color + rectangles[1][1].color + rectangles[2][2].color;
@@ -102,7 +101,7 @@ function animate() {
     }
     if (checkAll.includes('blueblueblue') && !winner) {
         winColor = 'blue';
-        winner == true;
+        winner = true;
     }
 
     c.fillStyle = winColor;
