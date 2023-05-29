@@ -61,18 +61,12 @@ class Graph {
     }
 
     collision() {
-        var width = this.nodeRadius * 2;
-        var height = width;
-
         if (this.adjList.length > 1) {
             for (var i = 0; i < this.adjList.length; i++) {
-               // console.log(graph.location)
                 var checkX = mouseClick.x - this.location[i].x;
                 var checkY = mouseClick.y - this.location[i].y;
 
-                //console.log(checkY);
-
-                if (checkX > 0 && checkX <= width && checkY > 0 && checkY <= height) {
+                if (checkX >= -this.nodeRadius && checkX <= this.nodeRadius && checkY >= -this.nodeRadius && checkY <= this.nodeRadius) {
                     mouseClick.x = -1;
                     mouseClick.y = -1;
                     console.log('collide');
@@ -108,10 +102,14 @@ var counter = 0
 window.addEventListener('click', function(event) {
     mouseClick.x = event.pageX;
     mouseClick.y = event.pageY;
-    if (counter < 1000) {
+
+    if (counter < 5) { //FOR DEBUG
         graph.createNode({x: mouseClick.x, y: mouseClick.y});
         counter += 1
 
+    }
+    else {
+        graph.collision();
     }
 })
 
@@ -122,18 +120,11 @@ function animate() {
 
     graph.print();
 
-    // c.beginPath();
-    // c.arc(100, 75, 30, 0, 2 * Math.PI);
-    // c.stroke();
-    // c.font = "30px calibri";
-    // c.fillText("10", 100-16, 75+10);
-
-    // c.beginPath;
-    // c.moveTo(100,0)
-    // c.lineTo(100,900);
-    // c.stroke();
-
-    // graph.collision();
+    c.beginPath();
+    c.arc(100, 75, 30, 0, 2 * Math.PI);
+    c.stroke();
+    c.font = "30px calibri";
+    c.fillText("10", 100-16, 75+10);
 
     
 
