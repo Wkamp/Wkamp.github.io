@@ -1,2 +1,2 @@
 # Wkamp.github.io
-Learning web dev through html canvas games
+Random projects to learn web development
