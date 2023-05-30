@@ -5,7 +5,7 @@ canvas.height = window.innerHeight;
 
 var c = canvas.getContext('2d');
 
-alert('Hold shift to move nodes\nHold control to delete nodes');
+alert('Click two nodes to create an edge\nHold shift to move nodes\nHold control to delete nodes');
 
 window.addEventListener('resize', function() {
     canvas.width = window.innerWidth;
