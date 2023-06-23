@@ -149,9 +149,9 @@ function init() {
     correct = 0;
     lives = 3;
     userInput = DEFAULT_MESSAGE;
-    //guess = new guessingWords(['blind', 'world','hive', 'The Patriot', 'Titanic']) //debugging
     guess = new guessingWords(academyLower);
     guess.shuffle();
+    console.log(localStorage.getItem(highscore));
 }
 
 
@@ -484,10 +484,11 @@ function animate() {
             c.fillStyle = 'rgb(212, 57, 30)'
             break;
         case -1: // you lose    
-            if (highscore < correct) {
+            if (highscore <= correct) {
                 highscore = correct;
+                localStorage.setItem(highscore, String(correct))
             }
-            alert('Highscore: ' + String(highscore) + '\nScore: ' + String(correct))
+            alert('Highscore: ' + localStorage.getItem(highscore) + '\nScore: ' + String(correct))
             init();
             break;
     }
