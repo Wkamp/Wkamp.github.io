@@ -151,7 +151,6 @@ function init() {
     userInput = DEFAULT_MESSAGE;
     guess = new guessingWords(academyLower);
     guess.shuffle();
-    console.log(localStorage.getItem(highscore));
 }
 
 
@@ -486,9 +485,9 @@ function animate() {
         case -1: // you lose    
             if (highscore <= correct) {
                 highscore = correct;
-                localStorage.setItem(highscore, String(correct))
+                localStorage.setItem('score', String(correct))
             }
-            alert('Highscore: ' + localStorage.getItem(highscore) + '\nScore: ' + String(correct))
+            alert('Highscore: ' + localStorage.getItem('score') + '\nScore: ' + String(correct))
             init();
             break;
     }
