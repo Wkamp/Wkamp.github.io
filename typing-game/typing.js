@@ -8,7 +8,14 @@ let correct;
 let userInput;
 let guess;
 let lives;
-var highscore = 0;
+let highscore;
+
+if (localStorage.getItem('score') !== null) {
+    highscore = Number(localStorage.get('score'));
+}
+else {
+    highscore = 0;
+}
 
 function randRange(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
