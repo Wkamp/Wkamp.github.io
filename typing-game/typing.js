@@ -11,7 +11,7 @@ let lives;
 let highscore;
 
 if (localStorage.getItem('score') !== null) {
-    highscore = Number(localStorage.get('score'));
+    highscore = Number(localStorage.getItem('score'));
 }
 else {
     highscore = 0;
